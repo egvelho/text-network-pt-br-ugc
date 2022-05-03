@@ -65,10 +65,12 @@ const outputDotFile = generateLCN({
   inputText: construcaoTxt,
 });
 
-fs.writeFileSync("graph.dot", outputDotFile);
+fs.writeFileSync("example.dot", outputDotFile);
 ```
 
 This code snippets takes the excerpt from the Dom Casmurro book and writes the LCN to the `graph.dot` file. If rendered in Graphviz, it should generate the following graphical network (text size is accordingly to token frequency):
+
+![Word network example](https://gitlab.com/egvelho/text-network-pt-br-ugc/-/raw/main/example.png "Word network example")
 
 # Future work
 

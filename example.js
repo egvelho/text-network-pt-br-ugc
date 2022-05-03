@@ -86,4 +86,4 @@ const outputDotFile = generateLCN({
   inputText: construcaoTxt,
 });
 
-fs.writeFileSync("graph.dot", outputDotFile);
+fs.writeFileSync("example.dot", outputDotFile);
