@@ -32,7 +32,7 @@ By last, the `generateLCN` function outputs a string that is in the dot file for
 
 # How to use it
 
-This project have no NPM dependencies, but you must have Node.js version 12+ to use it. The following code snippet illustrates its use:
+This project have no NPM dependencies, but you must have Node.js version 12+ to use it. The following code snippet illustrates it's use:
 
 ```javascript
 //example.js
@@ -45,23 +45,23 @@ const construcaoTxt = `
 Amou daquela vez como se fosse a última
 Beijou sua mulher como se fosse a última
 E cada filho seu como se fosse o único
-E atravessou a rua com seu passo tímido
+E atravessou a rua com seu passo tímido [...]
 `;
 
 const outputDotFile = generateLCN({
   /* Defines the coocurrence window (optional value, default is 4). */
   coocurrenceWindow: 2,
   /* Defines the number of edges a vertex can have, ordered by the
-    coocurrence frequency (optional value, default is 1). */
+     coocurrence frequency (optional value, default is 1). */
   maxEdges: 2,
   /* The threshold frequency for a token to be included
-    in the graph (optional value, default is 1). */
+     in the graph (optional value, default is 1). */
   minFrequency: 1,
   /* Limits the number of nodes by this number, ordered by
-    the token frequency (optional value, default is Infinity). */
+     the token frequency (optional value, default is Infinity). */
   nodeLimit: 100,
   /* The input text for the algorithm. It should have at least
-    50 words for the algorithm to behave accordingly (required value). */
+     50 words for the algorithm to behave accordingly (required value). */
   inputText: construcaoTxt,
 });
 
