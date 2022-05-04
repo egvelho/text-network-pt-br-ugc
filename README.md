@@ -4,7 +4,7 @@ A Node.js based tool to generate a lexical coocurrence network (LCN) for brazili
 
 # How does it works?
 
-The first step is the pre-processing of the input text, which is normalized to lowercase, trimmed and all the punctuation/accents are removed. After that, the text is tokenized and the stopwords are also removed. The last step of prepairing consists in the replacement of some slangs and internet slangs by theirs respective synonyms. This replacement uses an improved version of @avanco [UGCNormal](https://github.com/avanco/UGCNormal) dictionary.
+The first step is the pre-processing of the input text, which is normalized to lowercase, trimmed and all the punctuation/accents are removed. After that, the text is tokenized and the stopwords are also removed. The last step of prepairing consists in the replacement of some slangs and internet slangs by theirs respective "formal" synonyms. This replacement logic uses an improved version of @avanco [UGCNormal](https://github.com/avanco/UGCNormal) dictionary.
 
 After that, a simple lexical coocurrence algorithm is used to break the text in a list of n-tuples, which length is based in the `coocurrenceWindow` parameter. Then, the following graph structure is generated based in this n-tuple list:
 
@@ -26,9 +26,9 @@ After that, a simple lexical coocurrence algorithm is used to break the text in 
 }
 ```
 
-The `vertex` is an object which represents the coocurrences of the tokens. The `nodes` object saves the frequencies of all the tokens. By last, the `edges` represents the relations between nodes, which is weightened by the coocurrence frequency.
+The `vertex` is an object which represents the coocurrences of tokens. The `nodes` object saves the frequencies of all tokens. By last, the `edges` represents the relations between nodes, which is weightened by the coocurrence frequency.
 
-By last, the `generateLCN` function outputs a string that is in the dot file format, a Graphviz compatible graph representation format.
+By last, the `generateLCN` function outputs a string that follows the [dot language](https://graphviz.org/doc/info/lang.html), a Graphviz-compatible graph representation format.
 
 # How to use it
 
@@ -68,10 +68,10 @@ const outputDotFile = generateLCN({
 fs.writeFileSync("example.dot", outputDotFile);
 ```
 
-This code snippets takes the excerpt from the Dom Casmurro book and writes the LCN to the `graph.dot` file. If rendered in Graphviz, it should generate the following graphical network (text size is accordingly to token frequency):
+This code snippets takes the excerpt from the Chico Buarque's song and writes the LCN to the `example.dot` file. If rendered in Graphviz, it should generate the following graphical network (text size is accordingly to token frequency):
 
 ![Word network example](https://gitlab.com/egvelho/text-network-pt-br-ugc/-/raw/main/example.png "Word network example")
 
 # Future work
 
-Currently, this algorithm does not determines the rendering position of the network. Using a force-directed algorithm could improve the readability of the graph. Also, there are room for many performance optimizations.
+Currently, this algorithm does not determines the rendering position of the network. Using a force-directed algorithm could improve the readability of the graph. The `inputText` should not expect a string, an string array makes more sense for a text dataset. An relevance algorithm can be much better than word frequency to determine font size. Also, there are room for many performance optimizations.
