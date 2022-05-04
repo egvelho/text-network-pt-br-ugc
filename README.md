@@ -68,7 +68,7 @@ const outputDotFile = generateLCN({
 fs.writeFileSync("example.dot", outputDotFile);
 ```
 
-This code snippets takes the excerpt from the Chico Buarque's song and writes the LCN to the `example.dot` file. If rendered in Graphviz, it should generate the following graphical network (text size is accordingly to token frequency):
+This code snippets takes the lyrics from the Chico Buarque's song and writes the LCN to the `example.dot` file. If rendered in Graphviz, it should generate the following graphical network (text size is accordingly to token frequency):
 
 ![Word network example](https://gitlab.com/egvelho/text-network-pt-br-ugc/-/raw/main/example.png "Word network example")
 
